@@ -32,6 +32,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'daphne',
+    'djangochannelsrestframework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,7 +46,8 @@ INSTALLED_APPS = [
     'accounts',
     'social_django',
     'rest_framework_simplejwt',
-    'rest_framework_simplejwt.token_blacklist'
+    'rest_framework_simplejwt.token_blacklist',
+    
 ]
 
 MIDDLEWARE = [
@@ -98,7 +101,7 @@ DATABASES = {
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = '.com'
+EMAIL_HOST_USER = 'stanleyadisenu@gmail.com'
 EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = True
 
@@ -205,3 +208,13 @@ SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
 AUTH_USER_MODEL = 'accounts.UserAccount'
 
 CORS_ALLOW_ALL_ORIGINS = True
+
+ASGI_APPLICATION = 'auth_system.asgi.application'
+
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels.layers.InMemoryChannelLayer',
+      
+    },
+}
