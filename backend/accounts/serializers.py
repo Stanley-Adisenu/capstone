@@ -9,7 +9,7 @@ User = get_user_model()
 class UserCreateSerializer(UserCreateSerializer):
     class Meta(UserCreateSerializer.Meta):
         model = User
-        fields = ('id', 'email', 'full_name', 'user_name', 'password','bio','department', 'avatar')
+        fields = ('id', 'email', 'full_name', 'user_name', 'password','bio','department', 'avatar','total_points')
 
 class TopicSerializer(serializers.ModelSerializer):
     class Meta:
@@ -43,6 +43,17 @@ class MessageSerializer(serializers.ModelSerializer):
 
     def get_time_since_updated(self, obj):
         return naturaltime(obj.updated)
+
+
+class UserProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('id', 'email', 'full_name', 'user_name','bio','department', 'avatar','total_points')
+
+class LeaderboardSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('id', 'email', 'full_name', 'user_name','bio','department', 'avatar','total_points')
 
 
 

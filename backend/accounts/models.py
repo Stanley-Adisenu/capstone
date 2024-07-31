@@ -34,6 +34,7 @@ class UserAccount(AbstractBaseUser, PermissionsMixin):
     department = models.CharField(max_length=255, default=" ", null=True,blank=True)
     bio       = models.TextField(max_length=500, default=" ", null=True,blank=True)
     avatar = models.ImageField(upload_to = 'dashboard/images/', blank = True, null = True)
+    total_points = models.IntegerField(default=0, null=True, blank=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
 
